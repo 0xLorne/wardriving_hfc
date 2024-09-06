@@ -2,7 +2,7 @@
 
 Para cargar el contenedor en la máquina local
 ```bash
-docker load -i hfc_kismet.tar
+docker load -i hfc_wardriving.tar
 ```
 
 
