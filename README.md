@@ -1,35 +1,35 @@
 # Docker - HFC Wardriving Kit
 
-Para cargar el contenedor en la máquina local
-```bash
-docker load -i hfc_wardriving.tar
+![HFC Logo](https://uploads-public.hackmd.io/upload_bc48125849c8ad9fe14a24139af1d3a0.jpg)
+
+Kit de Wardriving v1.0
+
+Una imagen de docker con las configuraciones necesarias para preparar el ambiente y realizar Wardriving de manera fácil y rápida.
+
+## Requisitos Previos
+
+- Tener Docker instalado en el sistema
+- Contar con un mouse GPS (Deseable vk-162)
+- Contar con una antena capaz de usar el modo monitor (Deseable Antena externa: Omnidireccional, Direccional o Parabólica)
+- Permisos administrativos (root) 
+
+
+
+## Como usar
+
+Se debe dar permisos de ejecución a los scripts de bash
+
+```
+chmod +x ./build.sh ./run.sh
 ```
 
+de otra manera, se debe llamar a bash para ejecutar el script sin permisos
 
-### Para correr el contenedor
-```bash
-docker run -d hfc_kismet --privileged --network=host --pid=host wardriving_hfc:latest
+```
+bash ./build.sh && bash ./run.sh
 ```
 
-
-> Credenciales de kismet --> hfc_user:wardrive
-
-# Para abrir una shell
-```bash
-docker exec -it $(docker ps -a | grep hfc | awk '{print $1}' | head -n 1) /bin/bash
-```
-
-Si la máquina no logra conectarse al gpsd, se recomienda verificar que hay visibilidad (puede ser con netcat, ya está instalada)
-
-```bash
-nc 0.0.0.0 2947
-```
-
-Se espera una respuesta como `{"class":"VERSION","release":"3.22","rev":"3.22","proto_major":3,"proto_minor":14}`
+no debería generar conflictos al iniciar con gpsd, pero se necesita tener conectado el mouse gps antes de iniciar el contenedor.
 
 
-si se tiene esta salida pero kismet no muestra información del gpsd, se recomienda reiniciar el contenedor sin desconectar nada
-
-```bash
-docker restart $(docker ps -a | grep hfc | awk '{print $1}' | head -n 1)
-```
+Para mayor información, consultar: [https://hackersfight.club/wardriving/](https://hackersfight.club/wardriving/)
