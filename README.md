@@ -1,6 +1,7 @@
 # Docker - HFC Wardriving Kit
 
-![HFC Logo](https://uploads-public.hackmd.io/upload_bc48125849c8ad9fe14a24139af1d3a0.jpg)
+<img src="https://uploads-public.hackmd.io/upload_bc48125849c8ad9fe14a24139af1d3a0.jpg" alt="HFC Logo" width="150"/>
+
 
 Kit de Wardriving v1.0
 
@@ -19,13 +20,13 @@ Una imagen de docker con las configuraciones necesarias para preparar el ambient
 
 Se debe dar permisos de ejecución a los scripts de bash
 
-```
+```bash
 chmod +x ./build.sh ./run.sh
 ```
 
 de otra manera, se debe llamar a bash para ejecutar el script sin permisos
 
-```
+```bash
 bash ./build.sh && bash ./run.sh
 ```
 
